@@ -1,0 +1,19 @@
+01: CODE → VDECL CODE | FDECL CODE | CDECL CODE | ϵ
+02: VDECL → vtype id semi | vtype ASSIGN semi
+03: ASSIGN → id assign RHS
+04: RHS → EXPR | literal | character | boolstr
+05: EXPR → EXPR_MD addsub EXPR | EXPR_MD
+06: EXPR_MD → EXPR_T multdiv EXPR_MD | EXPR_T
+07: EXPR_T → lparen EXPR rparen | id | num
+08: FDECL → vtype id lparen ARG rparen lbrace BLOCK RETURN rbrace
+09: ARG → vtype id MOREARGS | ϵ
+10: MOREARGS → comma vtype id MOREARGS | ϵ
+11: BLOCK → STMT BLOCK | ϵ
+12: STMT → VDECL | ASSIGN semi
+13: STMT → if lparen COND rparen lbrace BLOCK rbrace ELSE
+14: STMT → while lparen COND rparen lbrace BLOCK rbrace
+15: COND → boolstr comp COND | boolstr
+16: ELSE → else lbrace BLOCK rbrace | ϵ
+17: RETURN → return RHS semi
+18: CDECL → class id lbrace ODECL rbrace
+19: ODECL → VDECL ODECL | FDECL ODECL | ϵ
