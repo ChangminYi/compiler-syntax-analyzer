@@ -14,7 +14,7 @@ int main() {
 	list<Token> temp = getInput(input_file_name);
 
 	for (Token &t : temp) {
-		cout << t << '\n';
+		cout << t;
 	}
 
 	return 0;

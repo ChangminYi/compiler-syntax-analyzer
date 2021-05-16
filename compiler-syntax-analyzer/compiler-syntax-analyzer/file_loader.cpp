@@ -14,7 +14,7 @@ vector<map<string, string>> LoadParsingTable(string file_name) {
 		}
 	}
 	else {
-		cerr << "there is no SLR_parsing_table.txt in directory" << '\n';
+		cerr << "there is no SLR_parsing_table.txt in directory.\n";
 		exit(-1);
 	}
 	
@@ -22,6 +22,7 @@ vector<map<string, string>> LoadParsingTable(string file_name) {
 	return table;
 }
 
+/*
 vector<Transition> LoadCFG(string file_name) {
 	vector<Transition> cfg(CFG_LEN);
 	ifstream cfg_file(file_name);
@@ -43,3 +44,4 @@ vector<Transition> LoadCFG(string file_name) {
 	cfg_file.close();
 	return cfg;
 }
+*/

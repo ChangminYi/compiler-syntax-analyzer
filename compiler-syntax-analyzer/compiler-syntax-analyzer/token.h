@@ -25,7 +25,8 @@ public:
     TOKEN_TYPE type;
     string value;
 	Token() {};
-    Token(TOKEN_TYPE t, string v);
+	Token(TOKEN_TYPE t);
+	Token(TOKEN_TYPE t, string v);
     friend ostream& operator<<(ostream& os, const Token& token);
 };
 

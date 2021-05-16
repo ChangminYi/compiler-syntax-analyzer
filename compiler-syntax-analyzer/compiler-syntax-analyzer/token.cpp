@@ -9,6 +9,9 @@ const vector<string> token_str = {
     "WSPACE",	"CLASS",	"OPER"
 };
 
+Token::Token(TOKEN_TYPE t): type(t){
+}
+
 Token::Token(TOKEN_TYPE t, string v): type(t) {
     switch(type){
     case CHAR:
