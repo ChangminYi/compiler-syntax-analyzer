@@ -21,3 +21,7 @@ vector<map<string, string>> LoadParsingTable(string file_name) {
 	table_file.close();
 	return table;
 }
+
+// vector<pair<string, string>> LoadCFG(string file_name) {
+// 	vecotr<pair<string, string>> 
+// }

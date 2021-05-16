@@ -13,7 +13,7 @@ using namespace std;
 #define COL 39
 #define ERROR 'e'
 
-vector<map<string, string>> LoadParsingTable();
+vector<map<string, string>> LoadParsingTable(string file_name);
 
 const vector<string> state = {
     "vtype", "id", "semi", "assign", "literal", "character", "boolstr", "addsub", "multdiv",
