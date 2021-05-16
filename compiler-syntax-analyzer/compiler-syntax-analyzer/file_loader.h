@@ -17,5 +17,6 @@ using namespace std;
 #define ERROR 'e'
 
 vector<map<string, string>> LoadParsingTable(string file_name);
+vector<Transition> LoadCFG(string file_name);
 
 #endif
