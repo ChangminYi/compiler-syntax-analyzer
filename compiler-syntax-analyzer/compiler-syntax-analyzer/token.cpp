@@ -1,4 +1,5 @@
 #include <vector>
+#include <unordered_map>
 #include "token.h"
 
 const vector<string> token_str = {
@@ -8,6 +9,12 @@ const vector<string> token_str = {
 	"RBRACE",	"LBRACKET",	"RBRACKET",	"COMMA",	"SEMICOLON",
     "WSPACE",	"CLASS",	"OPER"
 };
+
+//초기화 후에 빠르게 변환하기 위함
+unordered_map<string, TOKEN_TYPE> rev_token_map;
+//init 했는지 판별하는 변수
+bool isInitialized = false;
+
 
 Token::Token(TOKEN_TYPE t): type(t){
 }
@@ -37,11 +44,23 @@ ostream& operator<<(ostream& os, const Token& token){
 	return os;
 }
 
-TOKEN_TYPE revConvert(const string origin) {
+void initRevConvert() {
+	isInitialized = true;
 	for (uint32_t i = 0; i < token_str.size(); i++) {
-		if (origin == token_str[i]) {
-			return (TOKEN_TYPE)i;
-		}
+		rev_token_map.insert(make_pair(token_str[i], (TOKEN_TYPE)i));
 	}
-	return (TOKEN_TYPE)-1;
+	return;
+}
+
+TOKEN_TYPE revConvert(const string origin) {
+	if (!isInitialized) {
+		initRevConvert();
+	}
+
+	if (rev_token_map.find(origin) != rev_token_map.end()) {
+		return rev_token_map[origin];
+	}
+	else {
+		return (TOKEN_TYPE)-1;
+	}
 }

@@ -30,6 +30,7 @@ public:
     friend ostream& operator<<(ostream& os, const Token& token);
 };
 
+void initRevConvert();
 TOKEN_TYPE revConvert(const string origin);
 
 #endif
