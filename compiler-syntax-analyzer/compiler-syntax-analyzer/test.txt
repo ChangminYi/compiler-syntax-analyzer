@@ -1,0 +1,79 @@
+<CLASS>
+<ID, Main>
+<LBRACE>
+<TYPE, int>
+<ID, main>
+<LPAREN>
+<TYPE, int>
+<ID, argi>
+<COMMA>
+<TYPE, String>
+<ID, args>
+<LBRACKET>
+<RBRACKET>
+<RPAREN>
+<LBRACE>
+<TYPE, int>
+<ID, _intValue21>
+<ASSIGN>
+<NUMBER, -4>
+<SEMICOLON>
+<TYPE, boolean>
+<ID, _booleanValue32>
+<ASSIGN>
+<BOOLEAN, false>
+<SEMICOLON>
+<TYPE, char>
+<ID, somethingElse>
+<ASSIGN>
+<CHAR, A>
+<SEMICOLON>
+<ID, printf>
+<LPAREN>
+<STRING, Hello World>
+<RPAREN>
+<SEMICOLON>
+<ID, print>
+<LPAREN>
+<ID, args>
+<LBRACKET>
+<NUMBER, 0>
+<RBRACKET>
+<RPAREN>
+<SEMICOLON>
+<IF>
+<LPAREN>
+<ID, _intValue21>
+<COMPARE, >=>
+<NUMBER, -4>
+<RPAREN>
+<LBRACE>
+<ID, _booleanValue32>
+<ASSIGN>
+<BOOLEAN, true>
+<SEMICOLON>
+<RBRACE>
+<ELSE>
+<LBRACE>
+<WHILE>
+<LPAREN>
+<ID, somethingElse>
+<COMPARE, <>
+<CHAR, Z>
+<RPAREN>
+<LBRACE>
+<ID, somethingElse>
+<ASSIGN>
+<ID, somethingElse>
+<OPER, +>
+<NUMBER, 1>
+<SEMICOLON>
+<RBRACE>
+<RBRACE>
+<RETURN>
+<ID, a>
+<OPER, +>
+<NUMBER, 150>
+<SEMICOLON>
+<RBRACE>
+<RBRACE>
