@@ -12,4 +12,4 @@ const vector<string> state = {
 
 typedef struct Transition {
     string lhs, rhs;
-}
+};
