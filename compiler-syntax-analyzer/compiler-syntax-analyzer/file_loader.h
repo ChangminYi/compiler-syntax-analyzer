@@ -1,8 +1,10 @@
 #include <vector>
 #include <map>
 #include <string>
+#include <cstring>
 #include <fstream>
 #include <iostream>
+#include "cfg.h"
 
 using namespace std;
 
@@ -11,15 +13,9 @@ using namespace std;
 
 #define ROW 85
 #define COL 39
+#define CFG_LEN 38
 #define ERROR 'e'
 
 vector<map<string, string>> LoadParsingTable(string file_name);
-
-const vector<string> state = {
-    "vtype", "id", "semi", "assign", "literal", "character", "boolstr", "addsub", "multdiv",
-    "lparen", "rparen", "num", "lbrace", "rbrace", "comma",	"if", "while", "comp", "else", "return",
-    "class", "$", "CODE", "VDECL", "ASSIGN", "RHS", "EXPR", "EXPR_MD", "EXPR_T",
-    "FDECL", "ARG", "MOREARGS", "BLOCK", "STMT", "COND", "ELSE", "RETURN", "CDECL", "ODECL"
-};
 
 #endif
