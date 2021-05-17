@@ -1,5 +1,6 @@
 #include <iostream>
-#include "file_loader.h"
+#include "cfg_loader.h"
+#include "table_loader.h"
 #include "input_loader.h"
 #include "token.h"
 
