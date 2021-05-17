@@ -17,23 +17,27 @@ int main(/*int argc, char *argv[]*/) {
 
 	vector<map<string, string>> parse_table = LoadParsingTable(parse_table_name);
 	vector<Transition> cfg = LoadCFG(cfg_table_name);
-	list<Token> temp = getInput(input_file_name);
+	list<Token> token_input = getInput(input_file_name);
 
 
 	/* flow
 	stack<int> stk;
 	int current = 0;
 	stk.push(current);
-	Token toSee;
+	Token toSee = token_input.front();
+	token_input.pop_front();
 	while(!list.empty() && !stack.empty()){
-		toSee = temp.front();
-		temp.pop_front();
-
-		if(parse_table[token_to_cfg(toSee)] == shift){
-			current = parse_table[token_to_cfg(toSee)].shiftState;
-			stk.push(current);
+		if(parse_table[current][token_to_terminal(toSee)] == accepted){
+			cout << "Accepted.\n";
+			break;
 		}
-		else if(parse_table[current] == reduce){
+		else if(parse_table[current][token_to_terminal(toSee)] == shift){
+			current = parse_table[token_to_terminal(toSee)].shiftState;
+			stk.push(current);
+			toSee = token_input.front();
+			token_input.pop_front();
+		}
+		else if(parse_table[current][token_to_terminal(toSee)] == reduce){
 			reduce(parse_table[current].reduce_value);
 			for(sizeof(reduce_value)){
 				stk.pop();
