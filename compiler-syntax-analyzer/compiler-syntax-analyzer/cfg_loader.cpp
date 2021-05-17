@@ -8,7 +8,7 @@ vector<Transition> LoadCFG(string file_name) {
 		string temp;
 		for (Transition &c : cfg) {
 			getline(cfg_file, temp);
-			int arrow_idx = temp.find('→');
+            int arrow_idx = (int)temp.find('=');
 			c.lhs = temp.substr(0, arrow_idx);
 			c.rhs = temp.substr(arrow_idx + 1);
 		}
