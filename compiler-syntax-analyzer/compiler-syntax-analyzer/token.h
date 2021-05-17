@@ -32,5 +32,6 @@ public:
 
 void initRevConvert();
 TOKEN_TYPE revConvert(const string origin);
+string tokenToTerminal(const Token &token);
 
 #endif
