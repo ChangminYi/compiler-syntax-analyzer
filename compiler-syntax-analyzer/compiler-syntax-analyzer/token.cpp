@@ -12,8 +12,6 @@ const vector<string> token_str = {
 
 //초기화 후에 빠르게 변환하기 위함
 unordered_map<string, TOKEN_TYPE> rev_token_map;
-//init 했는지 판별하는 변수
-bool isInitialized = false;
 
 
 Token::Token(TOKEN_TYPE t): type(t){
@@ -45,7 +43,6 @@ ostream& operator<<(ostream& os, const Token& token){
 }
 
 void initRevConvert() {
-	isInitialized = true;
 	for (uint32_t i = 0; i < token_str.size(); i++) {
 		rev_token_map.insert(make_pair(token_str[i], (TOKEN_TYPE)i));
 	}
@@ -53,10 +50,6 @@ void initRevConvert() {
 }
 
 TOKEN_TYPE revConvert(const string origin) {
-	if (!isInitialized) {
-		initRevConvert();
-	}
-
 	if (rev_token_map.find(origin) != rev_token_map.end()) {
 		return rev_token_map[origin];
 	}
