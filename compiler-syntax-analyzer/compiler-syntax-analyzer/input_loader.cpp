@@ -72,5 +72,6 @@ list<Token> getInput(const string input_file_name) {
 		exit(-1);
 	}
 
+	res.push_back(Token(ENDMARKER, "$"));
 	return res;
 }

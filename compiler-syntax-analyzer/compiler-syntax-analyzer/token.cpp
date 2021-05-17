@@ -7,7 +7,7 @@ const vector<string> token_str = {
     "ID",	"IF",	"ELSE",	"WHILE",	"RETURN",
     "ASSIGN",	"COMPARE",	"LPAREN",	"RPAREN",	"LBRACE",
 	"RBRACE",	"LBRACKET",	"RBRACKET",	"COMMA",	"SEMICOLON",
-    "WSPACE",	"CLASS",	"OPER"
+    "WSPACE",	"CLASS",	"OPER", "ENDMARKER"
 };
 
 //초기화 후에 빠르게 변환하기 위함
@@ -114,6 +114,8 @@ string tokenToTerminal(const Token &token) {
 		else {
 			return "multdiv";	// 사칙연산자: *와 /
 		}
+	case ENDMARKER:
+		return "$";
 	}
 	return "error";
 }

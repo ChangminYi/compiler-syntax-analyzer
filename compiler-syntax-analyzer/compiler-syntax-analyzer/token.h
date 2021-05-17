@@ -17,7 +17,8 @@ enum TOKEN_TYPE {
     COMMA, SEMICOLON,
     WSPACE,
     CLASS,
-    OPER
+    OPER,
+	ENDMARKER
 };
 
 class Token{
