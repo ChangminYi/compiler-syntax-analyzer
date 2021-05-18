@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define CFG_LEN 38
+#define CFG_LEN 39
 
 typedef struct Transition {
     string lhs;

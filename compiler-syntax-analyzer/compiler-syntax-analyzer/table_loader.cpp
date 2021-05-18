@@ -9,7 +9,7 @@ vector<map<string, string>> LoadParsingTable(string file_name) {
 			string temp;
 			for(int i = 0; i < COL; ++i){
 				table_file >> temp;
-				tmap[state[i]] = temp;
+				tmap[symbol[i]] = temp;
 			}
 		}
 	}
