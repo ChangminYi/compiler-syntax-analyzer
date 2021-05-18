@@ -9,7 +9,8 @@ using namespace std;
 #define CFG_LEN 38
 
 typedef struct Transition {
-    string lhs, rhs;
+    string lhs;
+    int rhs_len;
 };
 
 vector<Transition> LoadCFG(string file_name);

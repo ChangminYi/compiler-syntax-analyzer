@@ -7,10 +7,10 @@ vector<Transition> LoadCFG(string file_name) {
 	if (cfg_file.is_open()) {
 		string temp;
 		for (Transition &c : cfg) {
-			getline(cfg_file, temp);
-            int arrow_idx = (int)temp.find('=');
-			c.lhs = temp.substr(0, arrow_idx);
-			c.rhs = temp.substr(arrow_idx + 1);
+			cfg_file >> temp;
+			c.lhs = temp;
+			cfg_file >> temp;
+			c.rhs_len = stoi(temp);
 		}
 	}
 	else {
