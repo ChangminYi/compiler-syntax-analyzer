@@ -22,16 +22,14 @@ int main(/*int argc, char *argv[]*/) {
 
 	stack<int> state_stack;
 	state_stack.push(0);
-	string next_symbol;
-	next_symbol = tokenToTerminal(token_input.front());
-	token_input.pop_front();
+	string next_symbol = tokenToTerminal(token_input.front());
 
-	while(!token_input.empty() && !state_stack.empty()){
+	while(!state_stack.empty()){
 		string act = parse_table[state_stack.top()][next_symbol];
 
 		if (act[0] == 's') {
-			next_symbol = tokenToTerminal(token_input.front());
 			token_input.pop_front();
+			next_symbol = tokenToTerminal(token_input.front());
 			int new_state = stoi(act.substr(1));
 			state_stack.push(new_state);
 		}
@@ -48,44 +46,14 @@ int main(/*int argc, char *argv[]*/) {
 		}
 		else if (act == "acc") {
 			cout << "Accepted\n";
+			break;
 		}
 		else {
 			int new_state = stoi(act);
 			state_stack.push(new_state);
+			next_symbol = tokenToTerminal(token_input.front());
 		}
 	}
-
-	/* flow
-	stack<int> stk;
-	int current = 0;
-	stk.push(current);
-	Token toSee = token_input.front();
-	token_input.pop_front();
-	while(!list.empty() && !stack.empty()){
-		if(parse_table[current][token_to_terminal(toSee)] == accepted){
-			cout << "Accepted.\n";
-			break;
-		}
-		else if(parse_table[current][token_to_terminal(toSee)] == shift){
-			current = parse_table[token_to_terminal(toSee)].shiftState;
-			stk.push(current);
-			toSee = token_input.front();
-			token_input.pop_front();
-		}
-		else if(parse_table[current][token_to_terminal(toSee)] == reduce){
-			reduce(parse_table[current].reduce_value);
-			for(sizeof(reduce_value)){
-				stk.pop();
-			}
-			current = parse_table[nonterminal_to_cfg()];
-			stk.push(current);
-		}
-		else{
-			cerr << "Invalid Syntax: ~~~\n";
-			exit(-1);
-		}
-	}
-	*/
 
 	return 0;
 }

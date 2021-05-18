@@ -4,13 +4,6 @@
 <TYPE, int>
 <ID, main>
 <LPAREN>
-<TYPE, int>
-<ID, argi>
-<COMMA>
-<TYPE, String>
-<ID, args>
-<LBRACKET>
-<RBRACKET>
 <RPAREN>
 <LBRACE>
 <TYPE, int>
@@ -28,24 +21,16 @@
 <ASSIGN>
 <CHAR, A>
 <SEMICOLON>
-<ID, printf>
-<LPAREN>
-<STRING, Hello World>
-<RPAREN>
-<SEMICOLON>
-<ID, print>
-<LPAREN>
-<ID, args>
-<LBRACKET>
-<NUMBER, 0>
-<RBRACKET>
-<RPAREN>
+<TYPE, String>
+<ID, helloworld>
+<ASSIGN>
+<STRING, Hello world>
 <SEMICOLON>
 <IF>
 <LPAREN>
-<ID, _intValue21>
-<COMPARE, >=>
-<NUMBER, -4>
+<BOOLEAN, true>
+<COMPARE, ==>
+<BOOLEAN, true>
 <RPAREN>
 <LBRACE>
 <ID, _booleanValue32>
@@ -57,9 +42,9 @@
 <LBRACE>
 <WHILE>
 <LPAREN>
-<ID, somethingElse>
-<COMPARE, <>
-<CHAR, Z>
+<BOOLEAN, false>
+<COMPARE, ==>
+<BOOLEAN, true>
 <RPAREN>
 <LBRACE>
 <ID, somethingElse>
