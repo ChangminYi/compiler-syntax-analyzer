@@ -11,9 +11,8 @@ using namespace std;
 #ifndef TABLE_LOADER
 #define TABLE_LOADER
 
-#define ROW 91
-#define COL 39
-#define ERROR 'e'
+#define ROW 86
+#define COL 40
 
 vector<unordered_map<string, string>> LoadParsingTable(string file_name);
 
