@@ -1,5 +1,5 @@
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <string>
 #include <cstring>
 #include <fstream>
@@ -15,7 +15,7 @@ using namespace std;
 #define COL 39
 #define ERROR 'e'
 
-vector<map<string, string>> LoadParsingTable(string file_name);
+vector<unordered_map<string, string>> LoadParsingTable(string file_name);
 
 const vector<string> symbol = {
     "vtype", "id", "semi", "assign", "literal", "character", "boolstr", "addsub", "multdiv",

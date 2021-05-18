@@ -16,7 +16,7 @@ int main(/*int argc, char *argv[]*/) {
 
 	initRevConvert();
 
-	vector<map<string, string>> parse_table = LoadParsingTable(parse_table_name);
+	vector<unordered_map<string, string>> parse_table = LoadParsingTable(parse_table_name);
 	vector<Transition> cfg = LoadCFG(cfg_table_name);
 	list<Token> token_input = getInput(input_file_name);
 
