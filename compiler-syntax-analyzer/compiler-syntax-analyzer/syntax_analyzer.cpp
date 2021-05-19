@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stack>
+#include <cctype>
 #include "cfg_loader.h"
 #include "table_loader.h"
 #include "input_loader.h"
@@ -26,32 +27,41 @@ int main(/*int argc, char *argv[]*/) {
 
 	while(!state_stack.empty()){
 		string act = parse_table[state_stack.top()][next_symbol];
+		Transition transition;
+		int new_state = 0;
 
-		if (act[0] == 's') {
-			token_input.pop_front();
-			next_symbol = tokenToTerminal(token_input.front());
-			int new_state = stoi(act.substr(1));
+		if (isdigit(act.front())) {
+			new_state = stoi(act);
 			state_stack.push(new_state);
-		}
-		else if (act[0] == 'r') {
-			Transition transition = cfg[stoi(act.substr(1))];
-			next_symbol = transition.lhs;
-			for(int i = 0; i < transition.rhs_len; ++i){
-				state_stack.pop();
-			}
-		}
-		else if (act[0] == 'e') {
-			cerr << "Rejected\n"; // why? where?
-			exit(-1);
-		}
-		else if (act == "acc") {
-			cout << "Accepted\n";
-			break;
+			next_symbol = tokenToTerminal(token_input.front());
 		}
 		else {
-			int new_state = stoi(act);
-			state_stack.push(new_state);
-			next_symbol = tokenToTerminal(token_input.front());
+			switch (act.front()) {
+			case 's':
+				token_input.pop_front();
+				next_symbol = tokenToTerminal(token_input.front());
+				new_state = stoi(act.substr(1));
+				state_stack.push(new_state);
+				break;
+			case 'r':
+				transition = cfg[stoi(act.substr(1))];
+				next_symbol = transition.lhs;
+				for (int i = 0; i < transition.rhs_len; ++i) {
+					state_stack.pop();
+				}
+				break;
+			case 'e':
+				cerr << "Rejected\n"; // why? where?
+				exit(-1);
+				break;
+			case 'a':
+				cout << "Accepted\n";
+				while (!state_stack.empty()) { state_stack.pop(); }
+				break;
+			default:
+				cerr << "?????\n";
+				exit(-1);
+			}
 		}
 	}
 
