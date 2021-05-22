@@ -10,10 +10,10 @@ using namespace std;
 
 const string parse_table_name = "SLR_parsing_table.txt";
 const string cfg_table_name = "cfg.txt";
-const string input_file_name = "test.txt";
+string input_file_name;
 
-int main(/*int argc, char *argv[]*/) {
-	//input_file_name = argv[1];
+int main(int argc, char *argv[]) {
+	input_file_name = argv[1];
 
 	initRevConvert();
 
