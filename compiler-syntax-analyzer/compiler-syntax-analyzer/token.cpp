@@ -31,13 +31,12 @@ Token::Token(TOKEN_TYPE t, string v): type(t) {
     }
 }
 
+
 ostream& operator<<(ostream& os, const Token& token){
-	if (!token.value.empty()) {
-		os << token_str[token.type] << ": " << token.value << '\n';
-	}
-	else {
-		os << token_str[token.type] << '\n';
-	}
+    if(!token.value.empty())
+        os << "<" << token_str[token.type] << ", " << token.value << ">";
+    else
+        os << "<" << token_str[token.type] << ">";
 	return os;
 }
 

@@ -51,7 +51,7 @@ int main(/*int argc, char *argv[]*/) {
 				}
 				break;
 			case 'e':
-				cerr << "Rejected\n"; // why? where?
+				cerr << "Rejected: " << token_input.front() << " is invalid.\n";
 				exit(-1);
 				break;
 			case 'a':
