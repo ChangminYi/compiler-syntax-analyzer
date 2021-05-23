@@ -12,15 +12,16 @@ const string parse_table_name = "SLR_parsing_table.txt";
 const string cfg_table_name = "cfg.txt";
 
 int main(int argc, char *argv[]) {
-
 	string input_file_name = argv[1];
+	if (argc != 2) {
+		cerr << "Not acceptible parameters.\n";
+		exit(-1);
+	}
 
 	initRevConvert();
-
 	vector<unordered_map<string, string>> parse_table = LoadParsingTable(parse_table_name);
 	vector<Transition> cfg = LoadCFG(cfg_table_name);
 	list<Token> token_input = getInput(input_file_name);
-
 
 	int line_cnt = 1;
 	stack<int> state_stack;
