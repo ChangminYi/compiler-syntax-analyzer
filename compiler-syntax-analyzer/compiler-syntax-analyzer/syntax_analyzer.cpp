@@ -13,7 +13,7 @@ const string cfg_table_name = "cfg.txt";
 
 int main(int argc, char *argv[]) {
 
-	string input_file_name;
+	string input_file_name = argv[1];
 
 	initRevConvert();
 
