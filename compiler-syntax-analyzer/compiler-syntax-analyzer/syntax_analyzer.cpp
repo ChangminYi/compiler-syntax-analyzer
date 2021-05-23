@@ -10,10 +10,10 @@ using namespace std;
 
 const string parse_table_name = "SLR_parsing_table.txt";
 const string cfg_table_name = "cfg.txt";
-string input_file_name;
 
 int main(int argc, char *argv[]) {
-	input_file_name = argv[1];
+
+	string input_file_name;
 
 	initRevConvert();
 
@@ -21,6 +21,8 @@ int main(int argc, char *argv[]) {
 	vector<Transition> cfg = LoadCFG(cfg_table_name);
 	list<Token> token_input = getInput(input_file_name);
 
+
+	int line_cnt = 1;
 	stack<int> state_stack;
 	state_stack.push(0);
 	string next_symbol = tokenToTerminal(token_input.front());
@@ -38,6 +40,7 @@ int main(int argc, char *argv[]) {
 		else {
 			switch (act.front()) {
 			case 's':
+				line_cnt++;
 				token_input.pop_front();
 				next_symbol = tokenToTerminal(token_input.front());
 				new_state = stoi(act.substr(1));
@@ -51,7 +54,7 @@ int main(int argc, char *argv[]) {
 				}
 				break;
 			case 'e':
-				cerr << "Rejected: " << token_input.front() << " is invalid.\n";
+				cerr << "Rejected: " << token_input.front() << " ( line: " << line_cnt << " ) is invalid.\n";
 				exit(-1);
 				break;
 			case 'a':
