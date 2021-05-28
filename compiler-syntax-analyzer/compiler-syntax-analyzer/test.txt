@@ -62,3 +62,24 @@
 <SEMICOLON>
 <RBRACE>
 <RBRACE>
+<TYPE, int>
+<ID, global_var>
+<ASSIGN>
+<NUMBER, 3>
+<OPER, ->
+<NUMBER, 5>
+<SEMICOLON>
+<TYPE, String>
+<ID, getString>
+<LPAREN>
+<RPAREN>
+<LBRACE>
+<TYPE, String>
+<ID, str>
+<ASSIGN>
+<STRING, Bye World>
+<SEMICOLON>
+<RETURN>
+<ID, str>
+<SEMICOLON>
+<RBRACE>
